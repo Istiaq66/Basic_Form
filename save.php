@@ -1,4 +1,5 @@
 <?php
+session_start();
 $serverName = 'localhost';
 $userName = 'root';
 $password = '';
@@ -25,20 +26,20 @@ if (isset($_POST['submit'])) {
 
 
     $query = "INSERT INTO student (Fname,Lname,gender,university,subj,semster,phone,package,device,Gproject,classtime,project,rnd)
-     values ('$FName','$LName','$Gender','$Uni','$Sub','$year','$phone','$pack','$Lap','$Gproject','". $time ."','". $Part ."','". $rnd ."')";
+     values ('$FName','$LName','$Gender','$Uni','$Sub','$year','$phone','$pack','$Lap','$Gproject','" . $time . "','" . $Part . "','" . $rnd . "')";
 
 
     $result = mysqli_query($conn, $query);
 
 
     if ($result) {
+        $_SESSION['status'] = "Aplication Submitted";
         echo '<script type="text/javascript">';
-        echo 'alert("Data inserted successfully....");';
         echo 'window.location.href = "Form.php";';
         echo '</script>';
     } else {
+        $_SESSION['status'] = "Data insertion failed";
         echo '<script type="text/javascript">';
-        echo 'alert("Data inserted successfully");';
         echo 'window.location.href = "Form.php";';
         echo '</script>';
     }

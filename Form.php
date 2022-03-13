@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,73 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="book.png" />
+    <link rel="stylesheet" href="Style.css">
+    <script src="sweetalert.min.js"></script>
     <title>Scholarship</title>
 
-    <style>
-        .form-group {
-            text-align: start;
-            padding-left: 50px;
-            color: black;
-            font-size: 20px;
-        }
-
-        .login {
-            width: 100%;
-        }
-
-        .background {
-            background: url("bg.jpg")no-repeat;
-            background-size: cover;
-        }
-
-        .Border {
-            border-radius: 15px;
-            border: 2px solid #4287f5;
-            outline: none;
-        }
-
-
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            background-image: url(arrow_up.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            outline: none;
-            background-color: rgb(43, 128, 255);
-            color: white;
-            cursor: pointer;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        #myBtn:hover {
-            background-color: #fc3535;
-            animation: rotate 0.5s linear;
-        }
-
-        @keyframes rotate{
-            0%{
-                transform: rotate(0deg);
-            }
-            50%{
-                transform: rotate(180deg);
-            }
-            100%{
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
-
-
-
-
 
 <body class="background">
 
@@ -97,9 +39,9 @@
             <div class="form-group col-md-12">
                 <label><b>Gender <sup class="star text-danger">*</sup></b></label> <br>
                 <label>Male</label>
-                <input type="radio" name="gender" value="Male">
+                <input type="radio" class="form-check-input" name="gender" value="Male" required>
                 <label>Female</label>
-                <input type="radio" name="gender" value="Female">
+                <input type="radio" class="form-check-input" name="gender" value="Female">
             </div>
 
             <div class="form-group col-md-6">
@@ -126,7 +68,7 @@
             <div class="form-group col-md-12">
 
                 <label for="Package"><b>Choose Package (Can Select any one) <sup class="star text-danger">*</sup></b></label> <br>
-                <input type="radio" class="form-check-input" id="Package" name="Package" value="Package - A,(Android+Flutter+Monetization) Visit link to know details">
+                <input type="radio" class="form-check-input" id="Package" name="Package" value="Package - A,(Android+Flutter+Monetization) Visit link to know details" required>
 
                 <label for="Package">Package - A,(Android+Flutter+Monetization) Visit link to know details </label>
                 <a href="<a> http://stamasoft.com/lmem_package.html</a>"> http://stamasoft.com/lmem_package.html</a>
@@ -140,24 +82,24 @@
             <div class="form-group col-md-12">
                 <label><b>Do you have personal Laptop ? <sup class="star text-danger">*</sup></b></label><br>
                 <label for="Laptop">Yes</label>
-                <input type="radio" id="Laptop" name="Laptop" value="Yes">
+                <input type="radio" class="form-check-input" id="Laptop" name="Laptop" value="Yes" required>
                 <label for="Laptop">No</label>
-                <input type="radio" id="Laptop" name="Laptop" value="No">
+                <input type="radio" class="form-check-input" id="Laptop" name="Laptop" value="No">
                  <br>
             </div>
 
             <div class="form-group col-md-12">
                 <label><b>Have you completed or participate any Government project before ? <sup class="star text-danger">*</sup></b></label><br>
                 <label for="Laptop">Yes</label>
-                <input type="radio" id="project" name="project" value="Yes">
+                <input type="radio" class="form-check-input" id="project" name="project" value="Yes" required>
                   <label for="Laptop">No</label>
-                <input type="radio" id="project" name="project" value="No">
+                <input type="radio" class="form-check-input" id="project" name="project" value="No">
             </div>
 
             <div class="form-group col-md-12">
                 <label><b>Your suitable Time zone (Select Any Two)<sup class="star text-danger">*</sup></b></label> <br>
             </div>
-            <div class=" form-group col-md-6">
+            <div class=" form-group col-md-6 ">
                 <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
                 <label>Saturday 10 AM - 1 PM</label><br>
 
@@ -275,6 +217,40 @@
             <div class="col-md-2 text-center mb-5">
                 <button type="submit" value="Save" name="submit" class="btn btn-primary btn-lg btn-block login">Submit</button>
             </div>
+
+
+
+            <?php
+            if (isset($_SESSION['status']) && $_SESSION['status'] != '') { ?>
+
+                <script>
+                    swal({
+                        title: "Good job!",
+                        text: "<?php echo $_SESSION['status']; ?>",
+                        icon: "success",
+                        button: "Close",
+                    });
+                </script>
+            <?php
+                unset($_SESSION['status']);
+            } else {
+            ?>
+
+                <script>
+                    swal({
+                        title: "OOPS!",
+                        text: "<?php echo $_SESSION['status']; ?>",
+                        icon: "warning",
+                        button: "Close",
+                    });
+                </script>
+            <?php
+                unset($_SESSION['status']);
+            }
+            ?>
+
+
+
         </form>
     </div>
 
