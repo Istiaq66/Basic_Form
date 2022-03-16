@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="book.png" />
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="sweetalert.min.js"></script>
     <title>Scholarship</title>
 
@@ -225,7 +225,7 @@ session_start();
 
                 <script>
                     swal({
-                        title: "Good job!",
+                        title: "Congratulations!",
                         text: "<?php echo $_SESSION['status']; ?>",
                         icon: "success",
                         button: "Close",

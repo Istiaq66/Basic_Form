@@ -1,11 +1,7 @@
 <?php
 session_start();
-$serverName = 'localhost';
-$userName = 'root';
-$password = '';
-$database = 'stama';
 
-$conn = new mysqli($serverName, $userName, $password, $database);
+include 'Connection.php';
 
 if (isset($_POST['submit'])) {
 
