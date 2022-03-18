@@ -36,13 +36,19 @@ session_start();
                 <input type="Text" class="form-control Border" id="Lname" name="Lname" placeholder="Enter Last Name" required>
             </div>
 
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
+                <label><b>Date of birth<sup class="star text-danger">*</sup></b></label>
+                <input class="form-control Border" name="date" id="date" type="date" min="1970-01-01" max="<?php echo date("yy-m-d"); ?>">
+            </div>
+
+            <div class="form-group col-md-6">
                 <label><b>Gender <sup class="star text-danger">*</sup></b></label> <br>
                 <label>Male</label>
                 <input type="radio" class="form-check-input" name="gender" value="Male" required>
                 <label>Female</label>
                 <input type="radio" class="form-check-input" name="gender" value="Female">
             </div>
+
 
             <div class="form-group col-md-6">
                 <label for="University"><b>University or Institute Name <sup class="star text-danger">*</sup></b> </label>
@@ -58,11 +64,16 @@ session_start();
                 <input type="Text" class="form-control Border" id="Semester" name="year" placeholder="Example: 3rd year & 6th semster" required>
             </div>
 
-
+            <div class="form-group col-md-6">
+                <label for="Email"><b>Email<sup class="star text-danger">*</sup></b></label>
+                <input type="text" class="form-control Border" id="email" name="email" placeholder="abc@gmail.com" required>
+            </div>
 
             <div class="form-group col-md-6">
                 <label for="Phone Number"><b>Phone Number<sup class="star text-danger">*</sup></b></label>
                 <input type="Text" class="form-control Border" id="Phone Number" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group col-md-6">
             </div>
 
             <div class="form-group col-md-12">
@@ -221,7 +232,7 @@ session_start();
 
 
             <?php
-            if (isset($_SESSION['status']) && $_SESSION['status'] != '') { ?>
+            if (isset($_SESSION['status']) && $_SESSION['status'] == "Aplication Submitted") { ?>
 
                 <script>
                     swal({
@@ -233,7 +244,7 @@ session_start();
                 </script>
             <?php
                 unset($_SESSION['status']);
-            } else {
+            } elseif(isset($_SESSION['status']) && $_SESSION['status'] == "Data insertion failed") {
             ?>
 
                 <script>

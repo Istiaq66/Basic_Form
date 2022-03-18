@@ -11,7 +11,7 @@ if (isset($_GET['page'])) {
 $num_per_page = 03;
 $start_from = ($page - 1) * 03;
 
-$query = "select * from student limit $start_from,$num_per_page";
+$query = "select * from student order by id desc  limit $start_from,$num_per_page";
 $result = mysqli_query($conn, $query);
 
 
@@ -47,9 +47,11 @@ $result = mysqli_query($conn, $query);
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Gender</th>
+                        <th scope="col">Date of birth</th>
                         <th scope="col">University or Institute Name</th>
                         <th scope="col">Department or Subject</th>
                         <th scope="col">Year & Semester</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Phone Number</th>
                         <th scope="col">Package</th>
                         <th scope="col">Laptop Status</th>
@@ -71,9 +73,11 @@ $result = mysqli_query($conn, $query);
                         <td><?php echo $row['Fname']; ?></td>
                         <td><?php echo $row['Lname']; ?></td>
                         <td><?php echo $row['gender']; ?></td>
+                        <td><?php echo $row['birth']; ?></td>
                         <td><?php echo $row['university']; ?></td>
                         <td><?php echo $row['subj']; ?></td>
                         <td><?php echo $row['semster']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
                         <td><?php echo $row['package']; ?></td>
                         <td><?php echo $row['device']; ?></td>
@@ -126,52 +130,63 @@ $result = mysqli_query($conn, $query);
                                                 <input type="Text" class="form-control Border" id="Lname" name="Lname" placeholder="Enter Last Name" value="<?php echo $result_edit_row[2] ?>" required>
                                                 <br>
 
+                      
                                                 <label><b>Gender <sup class="star text-danger">*</sup></b></label>
                                                 <input type="text" class="form-control Border" name="gender" value="<?php echo $result_edit_row[3] ?>" required>
                                                 <br>
 
+
+                                                <label><b>Date of birth<sup class="star text-danger">*</sup></b></label>
+                                                <input type="text" class="form-control Border" name="date" value="<?php echo $result_edit_row[4] ?>" required>
+                                                <br>
+
                                                 <label for="University"><b>University or Institute Name <sup class="star text-danger">*</sup></b> </label>
-                                                <input type="Text" class="form-control Border" id="University" name="university" placeholder="University or Institute Name" value="<?php echo $result_edit_row[4] ?>" required>
+                                                <input type="Text" class="form-control Border" id="University" name="university" placeholder="University or Institute Name" value="<?php echo $result_edit_row[5] ?>" required>
                                                 <br>
 
                                                 <label for="Department"><b>Department or Subject <sup class="star text-danger">*</sup></b></label>
-                                                <input type="Text" class="form-control Border" id="Department" name="subject" placeholder="Example: CSE" value="<?php echo $result_edit_row[5] ?>" required>
+                                                <input type="Text" class="form-control Border" id="Department" name="subject" placeholder="Example: CSE" value="<?php echo $result_edit_row[6] ?>" required>
                                                 <br>
 
                                                 <label for="Semester"><b>Year & Semester <sup class="star text-danger">*</sup></b></label>
-                                                <input type="Text" class="form-control Border" id="Semester" name="year" placeholder="Example: 3rd year & 6th semster" value="<?php echo $result_edit_row[6] ?>" required>
+                                                <input type="Text" class="form-control Border" id="Semester" name="year" placeholder="Example: 3rd year & 6th semster" value="<?php echo $result_edit_row[7] ?>" required>
                                                 <br>
 
+                                                <label><b>Email<sup class="star text-danger">*</sup></b></label>
+                                                <input type="Text" class="form-control Border" id="email" name="email" placeholder="email" value="<?php echo $result_edit_row[8] ?>" required>
+                                                <br>
+
+
                                                 <label for="Phone Number"><b>Phone Number<sup class="star text-danger">*</sup></b></label>
-                                                <input type="Text" class="form-control Border" id="Phone Number" name="phone" placeholder="Phone Number" value="<?php echo $result_edit_row[7] ?>" required>
+                                                <input type="Text" class="form-control Border" id="Phone Number" name="phone" placeholder="Phone Number" value="<?php echo $result_edit_row[9] ?>" required>
                                                 <br>
 
                                                 <label for="Package"><b>Choose Package (Can Select any one) <sup class="star text-danger">*</sup></b></label>
-                                                <input type="text" class="form-control Border" id="Package" name="Package" value="<?php echo $result_edit_row[8] ?>" required>
+                                                <input type="text" class="form-control Border" id="Package" name="Package" value="<?php echo $result_edit_row[10] ?>" required>
                                                 <br>
 
                                                 <label><b>Do you have personal Laptop ? <sup class="star text-danger">*</sup></b></label><br>
-                                                <input type="text" class="form-control Border" id="Laptop" name="Laptop" value="<?php echo $result_edit_row[9] ?>" required>
+                                                <input type="text" class="form-control Border" id="Laptop" name="Laptop" value="<?php echo $result_edit_row[11] ?>" required>
                                                  <br>
 
 
 
                                                 <label><b>Have you completed or participate any Government project before ? <sup class="star text-danger">*</sup></b></label><br>
-                                                <input type="text" class="form-control Border" id="project" name="project" value="<?php echo $result_edit_row[10] ?>" required>
+                                                <input type="text" class="form-control Border" id="project" name="project" value="<?php echo $result_edit_row[12] ?>" required>
                                                 <br>
 
 
                                                 <label><b>Your suitable Time zone (Select Any Two)<sup class="star text-danger">*</sup></b></label> <br>
-                                                <input type="text" class="form-control Border" id="time" name="time" value="<?php echo $result_edit_row[11] ?>">
+                                                <input type="text" class="form-control Border" id="time" name="time" value="<?php echo $result_edit_row[13] ?>">
                                                 <br>
 
                                                 <label><b>Which project you participated?<sup class="star text-danger">*</sup></b></label> <br>
-                                                <input type="text" class="form-control Border" id="Participation" name="Participation" value="<?php echo $result_edit_row[12] ?>">
+                                                <input type="text" class="form-control Border" id="Participation" name="Participation" value="<?php echo $result_edit_row[14] ?>">
                                                 <br>
 
                                                 <label><b>After achieved scholarship which RND area you Interested to join? <sup class="star text-danger">*</sup></b></label> <br>
 
-                                                <input type="text" class="form-control Border" id="rnd" name="rnd" value="<?php echo $result_edit_row[13] ?>">
+                                                <input type="text" class="form-control Border" id="rnd" name="rnd" value="<?php echo $result_edit_row[15] ?>">
 
                                             </div>
 
