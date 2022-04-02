@@ -66,7 +66,7 @@ session_start();
 
             <div class="form-group col-md-6">
                 <label for="Email"><b>Email<sup class="star text-danger">*</sup></b></label>
-                <input type="text" class="form-control Border" id="email" name="email" placeholder="abc@gmail.com" required>
+                <input type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" class="form-control Border" id="email" name="email" placeholder="abc@gmail.com" required>
             </div>
 
             <div class="form-group col-md-6">
@@ -114,51 +114,51 @@ session_start();
                 <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
                 <label>Saturday 10 AM - 1 PM</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 3 PM - 6 PM">
                 <label>Saturday 3 PM - 6 PM (No seat Available)</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Sunday 10 AM - 1 PM">
                 <label>Sunday 10 AM - 1 PM</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Sunday 3 PM - 6 PM">
                 <label>Sunday 3 PM - 6 PM</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Monday 10 AM - 1 PM">
                 <label>Monday 10 AM - 1 PM</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Monday 3 PM - 6 PM">
                 <label>Monday 3 PM - 6 PM</label><br>
 
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Tuesday 10 AM - 1 PM">
                 <label>Tuesday 10 AM - 1 PM</label><br>
 
             </div>
             <div class=" form-group col-md-6">
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Tuesday 3 PM - 6 PM">
                 <label>Tuesday 3 PM - 6 PM</label><br>
 
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Wednesday 10 AM - 1 PM">
                 <label>Wednesday 10 AM - 1 PM</label><br>
 
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Wednesday 3 PM - 6 PM">
                 <label>Wednesday 3 PM - 6 PM</label><br>
 
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Thursday 10 AM - 1 PM">
                 <label>Thursday 10 AM - 1 PM(No seat Available)</label><br>
 
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Thursday 3 PM - 6 PM">
                 <label>Thursday 3 PM - 6 PM(No seat Available)</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Friday 10 AM - 1 PM">
                 <label>Friday 10 AM - 1 PM(No seat Available)</label><br>
 
-                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Saturday 10 AM -1PM">
+                <input type="checkbox" class="form-check-input" id="time" name="time[]" value="Friday 3 PM - 6 PM">
                 <label>Friday 3 PM - 6 PM(No seat Available) </label><br>
             </div>
 

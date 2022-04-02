@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $body .= "Email: " . $useremail . "\r\n";
     $body .= "Message: " . $message . "\r\n";
 
-    mail($to, $subject, $body);
+
 
 
     $username2 = "Stamasoft.com";
@@ -50,28 +50,34 @@ if (isset($_POST['submit'])) {
     $body2 .= "Message: " . $message . "\r\n";
 
 
-    mail($to2, $subject2, $body2);
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        mail($to, $subject, $body);
+        mail($to2, $subject2, $body2);
+
+        $query = "INSERT INTO student (Fname,Lname,gender,birth,university,subj,semster,email,phone,package,device,Gproject,classtime,project,rnd)
+        values ('$FName','$LName','$Gender','$date','$Uni','$Sub','$year','$email','$phone','$pack','$Lap','$Gproject','" . $time . "','" . $Part . "','" . $rnd . "')";
+
+
+        $result = mysqli_query($conn, $query);
 
 
 
-    $query = "INSERT INTO student (Fname,Lname,gender,birth,university,subj,semster,email,phone,package,device,Gproject,classtime,project,rnd)
-     values ('$FName','$LName','$Gender','$date','$Uni','$Sub','$year','$email','$phone','$pack','$Lap','$Gproject','" . $time . "','" . $Part . "','" . $rnd . "')";
 
 
-    $result = mysqli_query($conn, $query);
-
-
-
-
-
-    if ($result) {
-        $_SESSION['status'] = "Aplication Submitted";
-        echo '<script type="text/javascript">';
-        echo 'window.location.href = "Form.php";';
-        echo '</script>';
+        if ($result) {
+            $_SESSION['status'] = "Aplication Submitted";
+            echo '<script type="text/javascript">';
+            echo 'window.location.href = "Form.php";';
+            echo '</script>';
+        } else {
+            $_SESSION['status'] = "Data insertion failed";
+            echo '<script type="text/javascript">';
+            echo 'window.location.href = "Form.php";';
+            echo '</script>';
+        }
     } else {
-        $_SESSION['status'] = "Data insertion failed";
         echo '<script type="text/javascript">';
+        echo 'alert("Your email is invalied. Please enter a valied email address");';
         echo 'window.location.href = "Form.php";';
         echo '</script>';
     }
